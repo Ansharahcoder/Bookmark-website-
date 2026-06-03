@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.fa-bars{
+    display: block;
+}
+ header{
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 80px;
+    align-items: center;
+}
+.menu{
+    display: flex;
+    gap: 90px;
+    align-items: center;
+}
+.menu li{
+list-style: none;
+}
+.menu li a {
+    text-decoration:none;
+    text-transform: uppercase;
+}
+.menu button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding: 10px 30px;
+    background-color: rgb(250, 89, 89);
+    color: white;
+    text-transform: uppercase;
+    border-radius:4px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width:0px) and (max-width:480px){
+  .menu{
+    display: none;
+  }  
+  header{
+    padding: 10px 30px;
+    justify-content: space-between;
+    gap: 50px;
+  }
+}
+@media screen and (min-width:481px) and (max-width:768px){
+  .menu{
+    display: none;
+  }  
+  header{
+    padding: 30px 60px;
+    justify-content: space-between;
+    gap:178px;
+  }
+}
+@media screen and (min-width:768px) and (max-width:1279px){
+      .menu{
+    display: none;
+  }  
+  header{
+    padding: 20px 60px;
+    justify-content: space-between;
+gap: 178px;
+  }
+}
+
+
