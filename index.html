@@ -3,26 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bookmark Landing Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <!-- Header start -->
-     <header>
-        <div>
-            <img src="./images/logo.svg" alt="bookmarklogo">
+
+    <nav class="navbar">
+        <div class="logo">
+            <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12.5" cy="12.5" r="12.5" fill="#5267DF"/>
+                <path d="M12.5 7L15.5 15.5L12.5 13.5L9.5 15.5L12.5 7Z" fill="white"/>
+            </svg>
+            <span class="logo-text">BOOKMARK</span>
         </div>
-        <nav>
-            <ul class="menu">
-                <li><a href="">Features</a></li>
-                <li><a href="">Pricing</a></li>
-                <li><a href="">Contact</a></li>
-                <button>login</button>
-            </ul>
-        </nav>
-        <i class="fa-solid fa-bars"></i>
-     </header>
-     <!-- Header end -->
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <ul class="nav-links">
+            <li><a href="#">FEATURES</a></li>
+            <li><a href="#">PRICING</a></li>
+            <li><a href="#">CONTACT</a></li>
+            <li><a href="#" class="login-btn">LOGIN</a></li>
+        </ul>
+    </nav>
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">A Simple Bookmark Manager</h1>
+                <p class="hero-text">
+                    A clean and simple interface to organize your favourite websites. Open a new browser tab and see your sites load instantly. Try it for free.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-chrome">Get it on Chrome</a>
+                    <a href="#" class="btn btn-firefox">Get it on Firefox</a>
+                </div>
+            </div>
+
+            <div class="hero-image-container">
+                <div class="blue-bg-blob"></div>
+                <img src="./images/hero-bg-006392f7.png" alt="Bookmark Dashboard" class="hero-img">
+            </div>
+        </div>
+    </section>
+   <section class="features-section">
+    <div class="features-header">
+        <h2 class="section-title">Features</h2>
+        <p class="section-desc">
+            Our aim is to make it quick and easy for you to access your favourite websites. Your bookmarks sync between your devices so you can access them on the go.
+        </p>
+    </div>
+
+    <div class="feature-item">
+        <div class="feature-image-container">
+            <div class="blob-shape left-blob"></div>
+            <img src="./images/illustration-features-tab-1-239a78af.png" alt="Bookmark Feature" class="feature-img">
+        </div>
+        <div class="feature-text-container">
+            <h3 class="feature-title">Bookmark in one click</h3>
+            <p class="feature-text">
+                Organize your bookmarks however you like. Our simple drag-and-drop interface gives you complete control over how you manage your favourite sites.
+            </p>
+            <a href="#" class="btn-more-info">More Info</a>
+        </div>
+    </div>
+
+    <div class="feature-item feature-reverse">
+        <div class="feature-image-container">
+            <div class="blob-shape right-blob"></div>
+            <img src="./images/illustration-features-tab-2-7cbb0898.png" alt="Intelligent Search" class="feature-img">
+        </div>
+        <div class="feature-text-container">
+            <h3 class="feature-title">Intelligent search</h3>
+            <p class="feature-text">
+                Our powerful search feature will help you find saved sites in no time at all. No need to crawl through all of your bookmarks.
+            </p>
+            <a href="#" class="btn-more-info">More Info</a>
+        </div>
+    </div>
+</section>
 </body>
-</html>

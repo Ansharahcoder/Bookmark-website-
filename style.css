@@ -1,115 +1,521 @@
+/* -----------------------------------------------------------
+   1. GLOBAL RESETS
+----------------------------------------------------------- */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
 }
-.fa-bars{
-    display: block;
+
+body {
+    background-color: #ffffff;
+    color: #242a45;
+    overflow-x: hidden;
 }
- header{
-    width: 100px;
+
+/* -----------------------------------------------------------
+   2. NAVBAR (DESKTOP)
+----------------------------------------------------------- */
+.navbar {
     display: flex;
     justify-content: space-between;
-    padding: 10px 80px;
     align-items: center;
+    padding: 40px 10%;
+    background-color: #ffffff;
 }
-.menu{
+
+.logo {
     display: flex;
-    gap: 90px;
     align-items: center;
+    gap: 10px;
 }
-.menu li{
-list-style: none;
+
+.logo-text {
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: #242a45;
 }
-.menu li a {
-    text-decoration:none;
-    text-transform: uppercase;
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 40px;
 }
-.menu button {
-    border: none;
-    outline: none;
-    background-color: transparent;
-    padding: 10px 30px;
-    background-color: rgb(250, 89, 89);
+
+.nav-links a {
+    text-decoration: none;
+    color: #9194a1;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #fa5757;
+}
+
+.nav-links .login-btn {
+    background-color: #fa5757;
+    color: white !important;
+    padding: 12px 32px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.menu-toggle, .hamburger {
+    display: none;
+}
+
+/* -----------------------------------------------------------
+   3. HERO SECTION (DESKTOP)
+----------------------------------------------------------- */
+.hero-section {
+    padding: 60px 0 100px 0;
+    position: relative;
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-title {
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.hero-text {
+    font-size: 18px;
+    color: #9194a1;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-chrome {
+    background-color: #5267df;
     color: white;
-    text-transform: uppercase;
-    border-radius:4px;
 }
 
+.btn-firefox {
+    background-color: #f7f7f7;
+    color: #575962;
+}
 
+.hero-image-container {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
 
+.hero-img {
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 2;
+}
 
+.blue-bg-blob {
+    position: absolute;
+    background-color: #5267df;
+    bottom: -20px;
+    right: -150px;
+    width: 100%;
+    height: 80%;
+    border-bottom-left-radius: 150px;
+    z-index: 1;
+}
 
+/* -----------------------------------------------------------
+   4. FEATURES SECTION (DESKTOP)
+----------------------------------------------------------- */
+.features-section {
+    padding: 80px 0;
+}
 
+.features-header {
+    text-align: center;
+    max-width: 540px;
+    margin: 0 auto 80px auto;
+    padding: 0 20px;
+}
 
+.section-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
 
+.section-desc {
+    font-size: 16px;
+    color: #9194a1;
+    line-height: 1.6;
+}
 
+/* Base style for both features rows */
+.feature-item {
+    max-width: 1200px;
+    margin: 0 auto 120px auto;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    gap: 80px;
+}
 
+/* Alternating Layout for Feature 2 on Desktop */
+.feature-reverse {
+    flex-direction: row-reverse;
+}
 
+.feature-image-wrapper {
+    flex: 1;
+    position: relative;
+}
 
+/* Blob for Feature 1 (Left Aligned) */
+.blue-left-blob {
+    position: absolute;
+    background-color: #5267df;
+    bottom: -40px;
+    left: -150px;
+    width: 100%;
+    height: 85%;
+    border-bottom-right-radius: 150px;
+    z-index: 1;
+}
 
+/* Blob for Feature 2 (Right Aligned) */
+.blue-right-blob-feature {
+    position: absolute;
+    background-color: #5267df;
+    bottom: -40px;
+    right: -150px;
+    width: 100%;
+    height: 85%;
+    border-bottom-left-radius: 150px;
+    z-index: 1;
+}
 
+.feature-text-wrapper {
+    flex: 1;
+}
 
+.feature-title {
+    font-size: 32px;
+    margin-bottom: 25px;
+}
 
+.feature-text {
+    font-size: 16px;
+    color: #9194a1;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
 
+.btn-more-info {
+    display: inline-block;
+    background-color: #5267df;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+}
 
+/* -----------------------------------------------------------
+   5. MOBILE RESPONSIVE MEDIA QUERIES (AS PER SCREENSHOTS)
+----------------------------------------------------------- */
+@media screen and (max-width: 768px) {
+    
+    /* --- Navbar Mobile --- */
+    .navbar {
+        padding: 40px 30px;
+    }
 
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 22px;
+        height: 16px;
+        cursor: pointer;
+        z-index: 100;
+    }
 
+    .hamburger span {
+        display: block;
+        height: 3px;
+        width: 100%;
+        background-color: #242a45;
+        transition: 0.3s;
+    }
 
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 100%;
+        background-color: rgba(36, 42, 69, 0.95);
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 100px;
+        gap: 30px;
+        transition: right 0.3s ease;
+        z-index: 99;
+    }
 
+    .nav-links a {
+        color: white;
+        font-size: 18px;
+        letter-spacing: 2px;
+    }
 
+    .menu-toggle:checked ~ .nav-links {
+        right: 0;
+    }
 
+    /* --- Hero Section Mobile --- */
+    .hero-container {
+        flex-direction: column-reverse; /* Image top par, text bottom par */
+        text-align: center;
+        padding: 0 32px;
+        gap: 40px;
+    }
 
+    .hero-title {
+        font-size: 30px;
+    }
 
+    .hero-text {
+        font-size: 15px;
+    }
 
+    .hero-buttons {
+        flex-direction: column; /* Buttons stacked structure */
+        gap: 15px;
+    }
 
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
 
+    .blue-bg-blob {
+        right: -50px;
+        width: 100%;
+    }
 
+/* --- Global Feature Section Styling --- */
+.features-section {
+    padding: 80px 0;
+    width: 100%;
+    overflow-x: hidden; /* Kisi bhi qism ke horizontal overflow ko rokne ke liye */
+}
 
+.features-header {
+    text-align: center;
+    max-width: 540px;
+    margin: 0 auto 80px auto;
+    padding: 0 20px;
+}
 
+.section-title {
+    font-size: 32px;
+    color: #242a45;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
 
+.section-desc {
+    font-size: 16px;
+    color: #9194a1;
+    line-height: 1.6;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-@media screen and (min-width:0px) and (max-width:480px){
-  .menu{
-    display: none;
-  }  
-  header{
-    padding: 10px 30px;
+/* Feature Grid/Flex Row */
+.feature-item {
+    max-width: 1200px;
+    margin: 0 auto 120px auto;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
-    gap: 50px;
-  }
-}
-@media screen and (min-width:481px) and (max-width:768px){
-  .menu{
-    display: none;
-  }  
-  header{
-    padding: 30px 60px;
-    justify-content: space-between;
-    gap:178px;
-  }
-}
-@media screen and (min-width:768px) and (max-width:1279px){
-      .menu{
-    display: none;
-  }  
-  header{
-    padding: 20px 60px;
-    justify-content: space-between;
-gap: 178px;
-  }
+    padding: 0 5%;
+    gap: 60px;
 }
 
+/* Desktop par alternating layout ke liye row-reverse */
+.feature-reverse {
+    flex-direction: row-reverse;
+}
 
+/* --- Image Box Container --- */
+.feature-image-container {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Feature 1 ki image left me rahegi */
+.feature-item:not(.feature-reverse) .feature-image-container {
+    justify-content: flex-start;
+}
+
+/* Feature 2 ki image right me rahegi */
+.feature-reverse .feature-image-container {
+    justify-content: flex-end;
+}
+
+.feature-img {
+    max-width: 90%;
+    height: auto;
+    position: relative;
+    z-index: 5; /* Image ko shapes ke hamesha upar rakhne ke liye */
+}
+
+/* --- Background Shapes (Blobs) --- */
+.blob-shape {
+    position: absolute;
+    background-color: #5267df;
+    height: 85%;
+    width: 100vw; /* Pure background stretch ke liye */
+    bottom: -20px;
+    z-index: 1; /* Taki text ya vector ke upar overlapping na ho */
+}
+
+/* Feature 1 ki left shape jo right me round hoti hai */
+.left-blob {
+    right: 20%;
+    border-top-right-radius: 150px;
+    border-bottom-right-radius: 150px;
+}
+
+/* Feature 2 ki right shape jo left me round hoti hai */
+.right-blob {
+    left: 20%;
+    border-top-left-radius: 150px;
+    border-bottom-left-radius: 150px;
+}
+
+/* --- Text Content Styling --- */
+.feature-text-container {
+    flex: 1;
+    max-width: 480px;
+}
+
+.feature-title {
+    font-size: 32px;
+    color: #242a45;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.feature-text {
+    font-size: 16px;
+    color: #9194a1;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.btn-more-info {
+    display: inline-block;
+    background-color: #5267df;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease;
+}
+
+.btn-more-info:hover {
+    background-color: #4354b9;
+}
+
+/* ===========================================================
+   MEDIA QUERIES (MOBILE VIEW - CHROME DEVTOOLS IPHONE SE 375PX)
+=========================================================== */
+@media screen and (max-width: 768px) {
+    
+    .features-header {
+        margin-bottom: 50px;
+    }
+
+    /* Mobile standard responsive layout ke mutabiq vertical flex-column */
+    .feature-item, .feature-reverse {
+        flex-direction: column; 
+        text-align: center;
+        gap: 40px;
+        margin-bottom: 80px;
+        padding: 0 24px;
+    }
+
+    .feature-image-container {
+        width: 100%;
+        justify-content: center !important; /* Mobile par image block center ho jayega */
+    }
+
+    .feature-img {
+        max-width: 80%; /* Image bounds mobile responsive maintain karega */
+    }
+
+    /* Mobile view par reference design ko follow karte hue background boxes adjust */
+    .left-blob {
+        right: 15%;
+        height: 75%;
+        border-top-right-radius: 100px;
+        border-bottom-right-radius: 100px;
+    }
+
+    .right-blob {
+        left: 15%;
+        height: 75%;
+        border-top-left-radius: 100px;
+        border-bottom-left-radius: 100px;
+    }
+
+    .feature-text-container {
+        max-width: 100%;
+    }
+
+    .feature-title {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+
+    .feature-text {
+        font-size: 15px;
+        margin-bottom: 25px;
+    }
+}}
