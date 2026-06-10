@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------
-   1. GLOBAL RESETS
+   1. GLOBAL STYLES & RESET
 ----------------------------------------------------------- */
 * {
     margin: 0;
@@ -11,11 +11,11 @@
 body {
     background-color: #ffffff;
     color: #242a45;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Horizontal scrollbar ko rokne ke liye */
 }
 
 /* -----------------------------------------------------------
-   2. NAVBAR (DESKTOP)
+   2. NAVBAR STYLING (DESKTOP)
 ----------------------------------------------------------- */
 .navbar {
     display: flex;
@@ -71,7 +71,7 @@ body {
 }
 
 /* -----------------------------------------------------------
-   3. HERO SECTION (DESKTOP)
+   3. HERO SECTION STYLING (DESKTOP)
 ----------------------------------------------------------- */
 .hero-section {
     padding: 60px 0 100px 0;
@@ -95,6 +95,7 @@ body {
     font-size: 48px;
     line-height: 1.2;
     margin-bottom: 25px;
+    color: #242a45;
 }
 
 .hero-text {
@@ -155,10 +156,12 @@ body {
 }
 
 /* -----------------------------------------------------------
-   4. FEATURES SECTION (DESKTOP)
+   4. FEATURES SECTION STYLING (DESKTOP)
 ----------------------------------------------------------- */
 .features-section {
     padding: 80px 0;
+    position: relative;
+      background-color:rgb(247, 247, 247) ;
 }
 
 .features-header {
@@ -179,27 +182,29 @@ body {
     line-height: 1.6;
 }
 
-/* Base style for both features rows */
-.feature-item {
+.feature-detail-container {
     max-width: 1200px;
-    margin: 0 auto 120px auto;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     padding: 0 10%;
     gap: 80px;
+  
 }
 
-/* Alternating Layout for Feature 2 on Desktop */
-.feature-reverse {
-    flex-direction: row-reverse;
-}
 
 .feature-image-wrapper {
     flex: 1;
     position: relative;
 }
 
-/* Blob for Feature 1 (Left Aligned) */
+.feature-img {
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 2;
+}
+
 .blue-left-blob {
     position: absolute;
     background-color: #5267df;
@@ -208,18 +213,6 @@ body {
     width: 100%;
     height: 85%;
     border-bottom-right-radius: 150px;
-    z-index: 1;
-}
-
-/* Blob for Feature 2 (Right Aligned) */
-.blue-right-blob-feature {
-    position: absolute;
-    background-color: #5267df;
-    bottom: -40px;
-    right: -150px;
-    width: 100%;
-    height: 85%;
-    border-bottom-left-radius: 150px;
     z-index: 1;
 }
 
@@ -251,7 +244,7 @@ body {
 }
 
 /* -----------------------------------------------------------
-   5. MOBILE RESPONSIVE MEDIA QUERIES (AS PER SCREENSHOTS)
+   5. MOBILE RESPONSIVE MEDIA QUERY (AS PER YOUR SCREENSHOTS)
 ----------------------------------------------------------- */
 @media screen and (max-width: 768px) {
     
@@ -305,7 +298,7 @@ body {
 
     /* --- Hero Section Mobile --- */
     .hero-container {
-        flex-direction: column-reverse; /* Image top par, text bottom par */
+        flex-direction: column-reverse; /* Pehle image aayegi phir text (jaisai aapke image 1 me h) */
         text-align: center;
         padding: 0 32px;
         gap: 40px;
@@ -313,6 +306,7 @@ body {
 
     .hero-title {
         font-size: 30px;
+        margin-top: 20px;
     }
 
     .hero-text {
@@ -320,7 +314,7 @@ body {
     }
 
     .hero-buttons {
-        flex-direction: column; /* Buttons stacked structure */
+        flex-direction: column; /* Buttons ek ke niche ek stack ho jayenge (Image 2 ke mutabiq) */
         gap: 15px;
     }
 
@@ -329,193 +323,43 @@ body {
         text-align: center;
     }
 
+    /* Mobile standard design ke mutabiq shape ko temporary responsive hide/adjust karte hain */
     .blue-bg-blob {
         right: -50px;
         width: 100%;
+        height: 80%;
     }
 
-/* --- Global Feature Section Styling --- */
-.features-section {
-    padding: 80px 0;
-    width: 100%;
-    overflow-x: hidden; /* Kisi bhi qism ke horizontal overflow ko rokne ke liye */
-}
-
-.features-header {
-    text-align: center;
-    max-width: 540px;
-    margin: 0 auto 80px auto;
-    padding: 0 20px;
-}
-
-.section-title {
-    font-size: 32px;
-    color: #242a45;
-    font-weight: 500;
-    margin-bottom: 20px;
-}
-
-.section-desc {
-    font-size: 16px;
-    color: #9194a1;
-    line-height: 1.6;
-}
-
-/* Feature Grid/Flex Row */
-.feature-item {
-    max-width: 1200px;
-    margin: 0 auto 120px auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 5%;
-    gap: 60px;
-}
-
-/* Desktop par alternating layout ke liye row-reverse */
-.feature-reverse {
-    flex-direction: row-reverse;
-}
-
-/* --- Image Box Container --- */
-.feature-image-container {
-    flex: 1;
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-/* Feature 1 ki image left me rahegi */
-.feature-item:not(.feature-reverse) .feature-image-container {
-    justify-content: flex-start;
-}
-
-/* Feature 2 ki image right me rahegi */
-.feature-reverse .feature-image-container {
-    justify-content: flex-end;
-}
-
-.feature-img {
-    max-width: 90%;
-    height: auto;
-    position: relative;
-    z-index: 5; /* Image ko shapes ke hamesha upar rakhne ke liye */
-}
-
-/* --- Background Shapes (Blobs) --- */
-.blob-shape {
-    position: absolute;
-    background-color: #5267df;
-    height: 85%;
-    width: 100vw; /* Pure background stretch ke liye */
-    bottom: -20px;
-    z-index: 1; /* Taki text ya vector ke upar overlapping na ho */
-}
-
-/* Feature 1 ki left shape jo right me round hoti hai */
-.left-blob {
-    right: 20%;
-    border-top-right-radius: 150px;
-    border-bottom-right-radius: 150px;
-}
-
-/* Feature 2 ki right shape jo left me round hoti hai */
-.right-blob {
-    left: 20%;
-    border-top-left-radius: 150px;
-    border-bottom-left-radius: 150px;
-}
-
-/* --- Text Content Styling --- */
-.feature-text-container {
-    flex: 1;
-    max-width: 480px;
-}
-
-.feature-title {
-    font-size: 32px;
-    color: #242a45;
-    font-weight: 500;
-    margin-bottom: 25px;
-}
-
-.feature-text {
-    font-size: 16px;
-    color: #9194a1;
-    line-height: 1.6;
-    margin-bottom: 30px;
-}
-
-.btn-more-info {
-    display: inline-block;
-    background-color: #5267df;
-    color: white;
-    padding: 12px 24px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: 500;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background 0.3s ease;
-}
-
-.btn-more-info:hover {
-    background-color: #4354b9;
-}
-
-/* ===========================================================
-   MEDIA QUERIES (MOBILE VIEW - CHROME DEVTOOLS IPHONE SE 375PX)
-=========================================================== */
-@media screen and (max-width: 768px) {
-    
+    /* --- Features Section Mobile --- */
     .features-header {
-        margin-bottom: 50px;
+        margin-bottom: 40px;
     }
 
-    /* Mobile standard responsive layout ke mutabiq vertical flex-column */
-    .feature-item, .feature-reverse {
-        flex-direction: column; 
+    .section-title {
+        font-size: 26px;
+    }
+
+    .section-desc {
+        font-size: 15px;
+    }
+
+    .feature-detail-container {
+        flex-direction: column; /* Image upar aur text niche stack ho jayega (Image 3 aur 4 ke mutabiq) */
         text-align: center;
+        padding: 0 32px;
         gap: 40px;
-        margin-bottom: 80px;
-        padding: 0 24px;
-    }
-
-    .feature-image-container {
-        width: 100%;
-        justify-content: center !important; /* Mobile par image block center ho jayega */
-    }
-
-    .feature-img {
-        max-width: 80%; /* Image bounds mobile responsive maintain karega */
-    }
-
-    /* Mobile view par reference design ko follow karte hue background boxes adjust */
-    .left-blob {
-        right: 15%;
-        height: 75%;
-        border-top-right-radius: 100px;
-        border-bottom-right-radius: 100px;
-    }
-
-    .right-blob {
-        left: 15%;
-        height: 75%;
-        border-top-left-radius: 100px;
-        border-bottom-left-radius: 100px;
-    }
-
-    .feature-text-container {
-        max-width: 100%;
     }
 
     .feature-title {
         font-size: 24px;
-        margin-bottom: 15px;
     }
 
     .feature-text {
         font-size: 15px;
-        margin-bottom: 25px;
     }
-}}
+
+    .blue-left-blob {
+        left: -50px;
+        width: 100%;
+    }
+}
