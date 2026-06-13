@@ -161,7 +161,10 @@ body {
 .features-section {
     padding: 80px 0;
     position: relative;
-      background-color:rgb(247, 247, 247) ;
+    
+}
+.color{
+  background-color: rgb(247, 247, 247);
 }
 
 .features-header {
@@ -184,14 +187,22 @@ body {
 
 .feature-detail-container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto 120px auto; /* Har feature box ke niche 120px ka gap diya hai */
     display: flex;
     align-items: center;
     padding: 0 10%;
     gap: 80px;
-  
 }
 
+/* Intelligent Search ki image ko right side flip karne ke liye */
+.feature-detail-container.reverse-layout {
+    flex-direction: row-reverse;
+}
+
+/* Aakhri section ke bottom margin ko zero karne ke liye */
+.feature-detail-container:last-child {
+    margin-bottom: 0;
+}
 
 .feature-image-wrapper {
     flex: 1;
@@ -242,9 +253,12 @@ body {
     font-size: 14px;
     font-weight: 500;
 }
+.reverse{
+    flex-direction:row-reverse;
+}
 
 /* -----------------------------------------------------------
-   5. MOBILE RESPONSIVE MEDIA QUERY (AS PER YOUR SCREENSHOTS)
+   5. MOBILE RESPONSIVE MEDIA QUERY
 ----------------------------------------------------------- */
 @media screen and (max-width: 768px) {
     
@@ -298,7 +312,7 @@ body {
 
     /* --- Hero Section Mobile --- */
     .hero-container {
-        flex-direction: column-reverse; /* Pehle image aayegi phir text (jaisai aapke image 1 me h) */
+        flex-direction: column-reverse;
         text-align: center;
         padding: 0 32px;
         gap: 40px;
@@ -314,7 +328,7 @@ body {
     }
 
     .hero-buttons {
-        flex-direction: column; /* Buttons ek ke niche ek stack ho jayenge (Image 2 ke mutabiq) */
+        flex-direction: column;
         gap: 15px;
     }
 
@@ -323,7 +337,6 @@ body {
         text-align: center;
     }
 
-    /* Mobile standard design ke mutabiq shape ko temporary responsive hide/adjust karte hain */
     .blue-bg-blob {
         right: -50px;
         width: 100%;
@@ -344,10 +357,16 @@ body {
     }
 
     .feature-detail-container {
-        flex-direction: column; /* Image upar aur text niche stack ho jayega (Image 3 aur 4 ke mutabiq) */
+        flex-direction: column; /* Mobile par image upar text niche normal stack hoga */
         text-align: center;
         padding: 0 32px;
         gap: 40px;
+        margin-bottom: 80px; /* Mobile spacing */
+    }
+
+    /* Mobile par reverse structure ko normal stack karne ke liye */
+    .feature-detail-container.reverse-layout {
+        flex-direction: column;
     }
 
     .feature-title {
@@ -362,4 +381,705 @@ body {
         left: -50px;
         width: 100%;
     }
+}
+/* Base Styles & Mobile First Layout */
+.features-section {
+  margin: 80px 0;
+  padding: 0 24px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.feature-container {
+  display: flex;
+  /* Mobile par image upar aur text neeche karne ke liye reverse stack */
+  flex-direction: column-reverse; 
+  align-items: center;
+  gap: 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Mobile Text Styles */
+.feature-text {
+  text-align: center;
+  max-wth: 450px;
+}
+
+.feature-text h2 {
+  font-size: 1.8rem;
+  color: #242a45;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.feature-text p {
+  color: #9194a1;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.btn-more {
+  background-color: #5267df;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+.btn-more:hover {
+  background-color: #4255c4;
+}
+
+/* Mobile Image Styles */
+.feature-image-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.feature-img {
+  max-width: 85%;
+  height: auto;
+  z-index: 2;
+}
+
+/* ❌ Mobile par blue background shape ko hide rakha hai */
+.blue-bg-shape {
+  display: none;
+}
+/* --- Base Reset & Fonts --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.download-section {
+  padding: 5rem 1rem;
+  background-color: #ffffff;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* --- Heading Styles --- */
+.heading-area {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.heading-area h2 {
+  font-size: 1.75rem;
+  color: #242a45;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.heading-area p {
+  color: #9194a1;
+  max-width: 500px;
+  margin: 0 auto;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* --- Cards Layout (Mobile First) --- */
+.cards-grid {
+  display: flex;
+  flex-direction: column; /* Mobile par ek ke neeche ek aayenge */
+  align-items: center;
+  gap: 2.5rem;            /* Cards ke darmiyan ka gap */
+}
+
+/* --- Single Card Styling --- */
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 280px;      /* Mobile par width control karne ke liye */
+  text-align: center;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-content {
+  padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+}
+
+.browser-logo {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1.5rem;
+}
+
+.card h3 {
+  color: #242a45;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  color: #9194a1;
+  font-size: 0.85rem;
+}
+
+/* --- Button Styling --- */
+.install-btn {
+  background-color: #5368df;
+  color: #ffffff;
+  border: none;
+  padding: 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-top: 4px dotted #f7f7f7; /* Cards ke neche jo dotted line hai */
+}
+
+.install-btn:hover {
+  background-color: #4255c4;
+}
+
+/* -----------------------------------------
+   MEDIA QUERY: Desktop Screens (1024px and up)
+-------------------------------------------- */
+@media (min-width: 1024px) {
+  .cards-grid {
+    flex-direction: row;     /* Desktop par row me convert ho jayenge */
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  /* Original Tailwind design me cards thode upar-neeche (staggered) hain */
+  .card-firefox {
+    margin-top: 2rem;       /* Center card thoda neeche */
+  }
+
+  .card-opera {
+    margin-top: 4rem;       /* Last card mazeed neeche */
+  }
+}
+/* --- FAQ Section Base Styles --- */
+.faq-section {
+  padding: 5rem 1.5rem;
+  background-color: #ffffff;
+}
+
+.faq-container {
+  max-width: 540px; /* Puray section ko horizontally compact rakhne ke liye */
+  margin: 0 auto;
+}
+
+/* Heading styling */
+.faq-heading {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.faq-heading h2 {
+  font-size: 1.75rem;
+  color: #242a45;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+}
+
+.faq-heading p {
+  color: #9194a1;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* --- Accordion (Details/Summary) Styling --- */
+.accordion-wrapper {
+  margin-bottom: 3rem;
+  border-top: 1px solid #e5e7eb; /* Sabse pehli upper line */
+}
+
+.faq-item {
+  border-bottom: 1px solid #e5e7eb; /* Har question ke neeche wali line */
+}
+
+/* Default native arrow hide karne ke liye */
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+.faq-item summary {
+  list-style: none;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 0;
+  font-size: 1rem;
+  color: #242a45;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.faq-question:hover {
+  color: #fa5757; /* Hover karne par text red ho jata hai design ke mutabiq */
+}
+
+/* Arrow rotation element */
+.arrow-icon {
+  transition: transform 0.3s ease;
+}
+
+/* Jab accordion open ho to arrow flip ho jaye aur color change ho */
+.faq-item[open] .arrow-icon {
+  transform: rotate(180deg);
+}
+.faq-item[open] .arrow-icon path {
+  stroke: #fa5757;
+}
+
+/* Answer text style */
+.faq-answer {
+  padding: 0.5rem 0 1.5rem 0;
+  color: #9194a1;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+/* --- More Info Button --- */
+.faq-btn-container {
+  text-align: center;
+}
+
+.more-info-btn {
+  background-color: #5368df;
+  color: #ffffff;
+  border: none;
+  padding: 0.85rem 1.75rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 5px 10px rgba(83, 104, 223, 0.2);
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.more-info-btn:hover {
+  background-color: #4255c4;
+}
+
+/* --- Media Queries for Mobile Screens --- */
+@media (max-width: 768px) {
+  .faq-heading h2 {
+    font-size: 1.5rem;
+  }
+  
+  .faq-question {
+    font-size: 0.95rem;
+    padding: 1rem 0;
+  }
+  
+  .faq-answer {
+    font-size: 0.9rem;
+  }
+}
+/* --- Core Resets --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* =========================================
+   1. Newsletter Section (Mobile First)
+============================================ */
+.newsletter-section {
+  background-color: #5368df;
+  color: #ffffff;
+  padding: 4.5rem 1.5rem;
+  text-align: center;
+}
+
+.newsletter-container {
+  max-width: 440px; /* Text wraps precisely like Tailwind layout */
+  margin: 0 auto;
+}
+
+.stats-text {
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.newsletter-section h2 {
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.3;
+  margin-bottom: 2rem;
+}
+
+/* Form Styles */
+.newsletter-form {
+  display: flex;
+  flex-direction: column; /* Mobile par stack style */
+  gap: 1rem;
+  width: 100%;
+}
+
+.input-wrapper {
+  width: 100%;
+}
+
+.newsletter-form input {
+  width: 100%;
+  padding: 0.85rem 1.2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  outline: none;
+  color: #242a45;
+}
+
+.contact-btn {
+  background-color: #fa5757;
+  color: #ffffff;
+  border: none;
+  padding: 0.85rem 1.2rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%; /* Mobile view full width button */
+  transition: background-color 0.2s, color 0.2s, border 0.2s;
+}
+
+.contact-btn:hover {
+  background-color: #ffffff;
+  color: #fa5757;
+  outline: 1px solid #fa5757;
+}
+/* --- Global Resets & White-Space Prevention --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  background-color: #ffffff;
+}
+
+/* Blocks layout gaps handler */
+section, footer {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================================
+   1. FAQ Section Styles
+============================================ */
+.faq-section {
+  padding: 5rem 1.5rem;
+  background-color: #ffffff;
+}
+
+.faq-container {
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.faq-heading {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.faq-heading h2 {
+  font-size: 1.75rem;
+  color: #242a45;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+}
+
+.faq-heading p {
+  color: #9194a1;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.accordion-wrapper {
+  margin-bottom: 3rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.faq-item {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+.faq-item summary {
+  list-style: none;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 0;
+  font-size: 1rem;
+  color: #242a45;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.faq-question:hover {
+  color: #fa5757;
+}
+
+.arrow-icon {
+  transition: transform 0.3s ease;
+}
+
+.faq-item[open] .arrow-icon {
+  transform: rotate(180deg);
+}
+.faq-item[open] .arrow-icon path {
+  stroke: #fa5757;
+}
+
+.faq-answer {
+  padding: 0.5rem 0 1.5rem 0;
+  color: #9194a1;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.faq-btn-container {
+  text-align: center;
+}
+
+.more-info-btn {
+  background-color: #5368df;
+  color: #ffffff;
+  border: none;
+  padding: 0.85rem 1.75rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 5px 10px rgba(83, 104, 223, 0.2);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.more-info-btn:hover {
+  background-color: #4255c4;
+}
+
+/* =========================================
+   2. Newsletter Section Styles
+============================================ */
+.newsletter-section {
+  background-color: #5368df;
+  color: #ffffff;
+  padding: 4.5rem 1.5rem;
+  text-align: center;
+}
+
+.newsletter-container {
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.stats-text {
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.newsletter-section h2 {
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.3;
+  margin-bottom: 2rem;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.input-wrapper {
+  width: 100%;
+}
+
+.newsletter-form input {
+  width: 100%;
+  padding: 0.85rem 1.2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  outline: none;
+  color: #242a45;
+}
+
+.contact-btn {
+  background-color: #fa5757;
+  color: #ffffff;
+  border: none;
+  padding: 0.85rem 1.2rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.contact-btn:hover {
+  background-color: #ffffff;
+  color: #fa5757;
+  outline: 1px solid #fa5757;
+}
+
+/* =========================================
+   3. Main Footer Styles
+============================================ */
+.main-footer {
+  background-color: #141829;
+  padding: 2.5rem 1.5rem;
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* FIXED LOGO COLOR VALUE */
+.logo-text {
+  color: #ffffff !important; 
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 1.1rem;
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer-nav a {
+  color: #dbdbdb;
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  transition: color 0.2s;
+}
+
+.footer-nav a:hover {
+  color: #fa5757;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.footer-socials a {
+  color: #ffffff;
+  transition: color 0.2s;
+}
+
+.footer-socials a:hover {
+  color: #fa5757;
+}
+
+/* =========================================
+   RESPONSIVE MEDIA QUERIES (Desktop Layouts)
+============================================ */
+@media (min-width: 768px) {
+  .newsletter-section h2 {
+    font-size: 2rem;
+  }
+  
+  .newsletter-form {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  
+  .contact-btn {
+    width: auto;
+    white-space: nowrap;
+    padding: 0.85rem 1.75rem;
+  }
+
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  .footer-left {
+    flex-direction: row;
+    gap: 4rem;
+  }
+
+  .footer-nav {
+    flex-direction: row;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .faq-heading h2 {
+    font-size: 1.5rem;
+  }
+  
+  .faq-question {
+    font-size: 0.95rem;
+    padding: 1rem 0;
+  }
 }
